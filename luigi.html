@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo dos Livros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background">
+        <form id="formulario">
+            <div class="borda">
+                <div class="cor">
+                    <p class="mundo">Mundo dos Livros</p>
+                    <div class="coisas">
+                        <p class="titulo">Categoria de Livros Preferidos:</p>
+                        <p><label for="Ação">Ação: </label><input type="checkbox" id="Ação" class="input-text"></p>
+                        <p><label for="Aventura">Aventura: </label><input type="checkbox" id="Aventura" class="input-text"></p>
+                        <p><label for="Romance">Romance: </label><input type="checkbox" id="Romance" class="input-text"></p>
+                        <p><label for="Ficção">Ficção: </label><input type="checkbox" id="Ficção" class="input-text"></p>
+                        <p><label for="Infantil">Infantil: </label><input type="checkbox" id="Infantil" class="input-text"></p>
+                        <p><label for="Didático">Didático: </label><input type="checkbox" id="Didático" class="input-text"></p>
+                        <p><label for="Religioso">Religioso: </label><input type="checkbox" id="Religioso" class="input-text"></p>
+                        <p><label for="Biografia">Biografia: </label><input type="checkbox" id="Biografia" class="input-text"></p>
+                        <p><label for="Biografia">Autor preferido: </label><input type="text" id="nome" class="input-text" placeholder="EX: Machado de Assis(opcional)"></p>
+
+
+                        <input class="botao" type="submit" value="Salvar preferencias">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validarFormulario() {
+            var nome = document.getElementById('nome');
+;
+
+            if (validarCampo(nome)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function validarCampo(campo) {
+            if (campo.value.trim() === "") {
+                campo.style.background = "red";
+                alert("Preencha todos os campos corretamente");
+                return false;
+            } else {
+                campo.style.background = "white";
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>

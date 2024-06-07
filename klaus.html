@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo dos Livros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background">
+        <form id="formulario" onsubmit="return validarFormulario()">
+            <div class="borda">
+                <div class="cor">
+                    <p class="mundo">Mundo dos Livros</p>
+                    <div class="coisas">
+                        <p class="titulo">Formulário Fornecedor:</p>
+                        <p><label for="id_produto">Id do Produto: </label><input type="text" id="id_produto" class="input-text"></p>
+                        <p><label for="id_fornecedor">Id do Fornecedor: </label><input type="text" id="id_fornecedor" class="input-text"></p>
+                        <p><label for="id_transportadora">Transportadora: </label><input type="text" id="id_transportadora" class="input-text" placeholder="EX: Correios"></p>
+
+                        <input class="botao" type="submit" value="Enviar">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validarFormulario() {
+            var idProduto = document.getElementById('id_produto');
+            var idFornecedor = document.getElementById('id_fornecedor');
+            var idTransportadora = document.getElementById('id_transportadora');
+
+            if (validarCampo(idProduto) && validarCampo(idFornecedor) && validarCampo(idTransportadora)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function validarCampo(campo) {
+            if (campo.value.trim() === "") {
+                campo.style.background = "red";
+                alert("Preencha todos os campos corretamente");
+                return false;
+            } else {
+                campo.style.background = "white";
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>

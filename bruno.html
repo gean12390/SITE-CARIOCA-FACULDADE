@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo dos Livros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background">
+        <form id="formulario">
+            <div class="borda">
+                <div class="cor">
+                    <p class="mundo">Mundo dos Livros</p>
+                    <div class="coisas">
+                        <p class="titulo">Formulário de funcionário:</p>
+                        <p><label for="funcionario">Nome do funcionário: </label><input type="text" id="nome" class="input-text" placeholder="EX:Bruno"></p>
+                        <p><label for="funcao">Função: </label><input type="text" id="funcao" class="input-text" placeholder="EX: Vendedor"></p>
+                        <p><label for="salario">Salário: </label><input type="password" id="salario" class="input-text" placeholder="R$1.412,00"></p>
+
+                        <input class="botao" type="submit" value="Enviar" onclick="return validarFormulario()">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validarFormulario() {
+            var nome = document.getElementById('nome');
+            var funcao = document.getElementById('funcao');
+            var salario = document.getElementById('salario');
+
+            if (validarCampo(nome) && validarCampo(funcao) && validarCampo(salario)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function validarCampo(campo) {
+            if (campo.value.trim() === "") {
+                campo.style.background = "red";
+                alert("Preencha todos os campos corretamente");
+                return false;
+            } else {
+                campo.style.background = "white";
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>

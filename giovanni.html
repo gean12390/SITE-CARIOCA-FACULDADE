@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo dos Livros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background">
+        <form id="formulario" onsubmit="return validarFormulario()">
+            <div class="borda">
+                <div class="cor">
+                    <p class="mundo">Mundo dos Livros</p>
+                    <div class="coisas">
+                        <p class="titulo">Cadastro do Cliente:</p>
+                        <p><label for="Nome">Nome: </label><input type="text" id="Nome" class="input-text" placeholder="EX: Giovanni"></p>
+                        <p><label for="CPF">CPF: </label><input type="text" id="CPF" class="input-text" placeholder="EX: 000.000.000-00"></p>
+                        <p><label for="email">Email: </label><input type="email" id="email" class="input-text" placeholder="EX: giovanni.silva2@uscsonline.com.br"></p>
+                        <p><label for="endereco">Endereço: </label><input type="text" id="endereco" class="input-text" placeholder="EX: Rua Rio de Janeiro, 350"></p>
+
+                        <input class="botao" type="submit" value="Enviar">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validarFormulario() {
+            var nome = document.getElementById('Nome');
+            var cpf = document.getElementById('CPF');
+            var email = document.getElementById('email');
+            var endereco = document.getElementById('endereco');
+
+            if (validarCampo(nome) && validarCampo(cpf) && validarCampo(email) && validarCampo(endereco)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function validarCampo(campo) {
+            if (campo.value.trim() === "") {
+                campo.style.background = "red";
+                alert("Preencha todos os campos corretamente");
+                return false;
+            } else {
+                campo.style.background = "white";
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>

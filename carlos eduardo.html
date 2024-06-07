@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo dos Livros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background">
+        <form id="formulario" onsubmit="return validarFormulario()">
+            <div class="borda">
+                <div class="cor">
+                    <p class="mundo">Mundo dos Livros</p>
+                    <div class="coisas">
+                        <p class="titulo">Cadastro de Estoque:</p>
+                        <p><label for="cod_livro">Codigo do livro: </label><input type="text" id="cod_livro" class="input-text"></p>
+                        <p><label for="editora">Codigo da editora: </label><input type="text" id="editora" class="input-text"></p>
+                        <p><label for="Quantidade">Quantidade no Estoque: </label><input type="text" id="Quantidade" class="input-text"></p>
+
+                        <input class="botao" type="submit" value="Enviar">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function validarFormulario() {
+            var codLivro = document.getElementById('cod_livro');
+            var editora = document.getElementById('editora');
+            var quantidade = document.getElementById('Quantidade');
+
+            if (validarCampo(codLivro) && validarCampo(editora) && validarCampo(quantidade)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function validarCampo(campo) {
+            if (campo.value.trim() === "") {
+                campo.style.background = "red";
+                alert("Preencha todos os campos corretamente");
+                return false;
+            } else {
+                campo.style.background = "white";
+                return true;
+            }
+        }
+    </script>
+</body>
+</html>
